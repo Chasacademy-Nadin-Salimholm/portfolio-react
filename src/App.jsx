@@ -4,6 +4,9 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
+import Home from './pages/Home'
+
+
 
 
 
@@ -16,8 +19,15 @@ import {
 } from "react-router-dom";
 
 import Navbar from './Navbar';
+import Portfolio from './assets/Portfolio.png';
 
-import logo from './assets/logo.png';
+import compPic from './assets/compPic.jpg';
+import reactPic from './assets/reactPic.jpg';
+
+
+
+
+
 
 const MyButton = styled.button`
   padding: 4em;
@@ -37,6 +47,11 @@ const StyledImg = styled.img`
 
 const MainContainer = styled.div`
   grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area:main;
+  justify-content: flex-start;
 `;
 
 const GridContainer = styled.div`
@@ -44,43 +59,56 @@ const GridContainer = styled.div`
   grid-template-rows: 7rem repeat(3, 1fr) 10rem;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas: 
-  "logo top top top top"
+  "top top top top top"
   "main main main main main"
   "main main main main main"
   "main main main main main"
   "footer footer footer footer footer";
   min-height: 100vh;
+  
 `;
 
 const StyledFooter = styled.footer`
-background-color: black;
+background-color: #F8F8F9;
 padding: 2rem;
 color:#fff;
 grid-area: footer;
-/* display: flex; */
+
 align-items: center;
 `;
 
-const IconContainer=styled.div`
+const IconContainer = styled.div`
 display: flex;
 justify-content: center;
+margin: auto;
+
 `
-const IconLink= styled.a`
+const IconLink = styled.a`
   color: #fff;
   padding: 2rem;
-`
+  
 
+  
+`
+const socialData = [
+  { id: 1, href: "https://www.linkedin.com/in/myname/", icon: faLinkedin },
+  { id: 2, href: "https://www.facebook.com/myname/", icon: faFacebook },
+  { id: 3, href: "https://github.com/myname/", icon: faGithub },
+]
 
 
 function App() {
 
+
+
   return (
+
     <Router>
+
       <GridContainer>
-     
-        <LogoContainer>
+        {/* <LogoContainer>
           <StyledImg src={logo} alt="Logo" />
-        </LogoContainer>
+        </LogoContainer> */}
         <Navbar />
         <MainContainer>
           <Switch>
@@ -90,40 +118,27 @@ function App() {
             <Route path="/portfolio">
               <p>Portfolio</p>
             </Route>
+            <Route path="/contact">
+              <p>Contact</p>
+            </Route>
             <Route path="/">
-              <p>Home</p>
+              <Home />
             </Route>
           </Switch>
-          <h1>Hello Nadin</h1>
+          <h1></h1>
         </MainContainer>
         <StyledFooter>
-      <IconContainer>
-        <IconLink href="https://www.linkedin.com/in/myname/">
-          <FontAwesomeIcon icon={faLinkedin}/>
-          <IconLink href="https://www.facebook.com/myname/">
-          <FontAwesomeIcon icon={faFacebook} />
-          <IconLink href="https://github.com/myname/">
-          <FontAwesomeIcon icon={faGithub} />
-        </IconLink>
-        </IconLink>
-          
-        </IconLink>
-      </IconContainer>
-      <p>(C) 2023 </p>
-    </StyledFooter>
+          <IconContainer>
+            {socialData.map(({ href, id, icon }) => <IconLink href={href} key={id}> <FontAwesomeIcon icon={icon} /></IconLink>)}
+          </IconContainer>
+          <p>(C) 2023 </p>
+        </StyledFooter>
       </GridContainer>
     </Router>
   );
 }
 
-// Läxa tills 7/3:
-// Skapa din personliga footer i samråd med andra på Discord.
-// titta på exempel på andra portföljer
-// Du kan t.ex ha med linkedin-ikon och github-ikon figma-ikon?
-// Tips att researcha: "fontawesome"
-// Obs. Discord är ICKE frivilligt, men ni behöver inte göra hela läxan på discord
-// Om du blir klar med detta, gör samma sak med Navbar
-// Pusha ditt projek till din github, skicka länk till mig.
+
 
 
 export default App;

@@ -1,32 +1,68 @@
 import React from "react";
 import styled from "styled-components";
-import {
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const StyledNav = styled.nav`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     grid-area:top;
-    background-color: black;
+    background-color:#fbf7f7;
+    justify-content: flex-end;
+    
+
+ 
+
 `;
 
+
 const StyledLink = styled(Link)`
-    color: #080808;
-    background-color: #ffffff;
+    color: #000000;
+    background-color:#fbf7f7;
     //border-radius: 8px;
+    
 `;
+
+const links = [
+    {
+        id: 1,
+        to: "/",
+        text: "Home"
+    },
+    {
+        id: 2,
+        to: "/contact",
+        text: "Contact"
+    },
+    {
+        id: 3,
+        to: "/about",
+        text: "About"
+    },
+    {
+        id: 4,
+        to: "/portfolio",
+        text: "Portfolio"
+    },
+
+]
+
+//[{link:"/", text:"home"},{link:"/contact"},]
+
+
 const Navbar = () => {
+
     return (
         <StyledNav>
-            <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="/contact">Contact</StyledLink>
-            <StyledLink to="/portfolio">Portfolio</StyledLink>
-            <StyledLink to="/about">About</StyledLink>
+            {links.map(({ to, id, text }) => <StyledLink to={to} key={id}>{text}</StyledLink>)}
+
+
+
         </StyledNav>
+
     );
 }
 
 export default Navbar;
+
