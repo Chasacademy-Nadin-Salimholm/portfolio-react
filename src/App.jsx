@@ -5,7 +5,7 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import Home from './pages/Home'
-
+import Cookwise from './pages/Cookwise';
 
 
 
@@ -21,8 +21,6 @@ import {
 import Navbar from './Navbar';
 import Portfolio from './assets/Portfolio.png';
 
-import compPic from './assets/compPic.jpg';
-import reactPic from './assets/reactPic.jpg';
 
 
 
@@ -69,11 +67,10 @@ const GridContainer = styled.div`
 `;
 
 const StyledFooter = styled.footer`
-background-color: #F8F8F9;
-padding: 2rem;
+background-color:  #F8F8F9;
+padding: 5rem;
 color:#fff;
 grid-area: footer;
-
 align-items: center;
 `;
 
@@ -87,8 +84,7 @@ const IconLink = styled.a`
   color: #fff;
   padding: 2rem;
   
-
-  
+ 
 `
 const socialData = [
   { id: 1, href: "https://www.linkedin.com/in/myname/", icon: faLinkedin },
@@ -112,11 +108,12 @@ function App() {
         <Navbar />
         <MainContainer>
           <Switch>
+            <Route path="/cookwise">
+              <Cookwise />
+            </Route>
             <Route path="/about">
               <p>About</p>
-            </Route>
-            <Route path="/portfolio">
-              <p>Portfolio</p>
+
             </Route>
             <Route path="/contact">
               <p>Contact</p>

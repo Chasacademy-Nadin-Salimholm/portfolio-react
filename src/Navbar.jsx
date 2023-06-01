@@ -24,26 +24,40 @@ const StyledLink = styled(Link)`
     
 `;
 
+const StyledA = styled.a`
+    color: #000000;
+    background-color:#fbf7f7;
+    //border-radius: 8px;
+    
+`;
+// local = false betyder React Router Link till undersida
+// local = true betyder "lokal länk", dvs inte react router, som kan gå till
+// 1. anchor tag (dvs scroll ner till viss punkt på sidan)
+// 2. länk till extern sida, t.ex Figma, Github, Linkedin, Pdf you name it
 const links = [
     {
         id: 1,
         to: "/",
-        text: "Home"
+        text: "Home",
+        local: false
     },
     {
         id: 2,
-        to: "/contact",
-        text: "Contact"
+        href: "/#case-studies",
+        text: "Case Studies",
+        local: true
     },
     {
         id: 3,
         to: "/about",
-        text: "About"
+        text: "About",
+        local: false
     },
     {
         id: 4,
-        to: "/portfolio",
-        text: "Portfolio"
+        to: "/contact",
+        text: "Contact",
+        local: false
     },
 
 ]
@@ -55,10 +69,7 @@ const Navbar = () => {
 
     return (
         <StyledNav>
-            {links.map(({ to, id, text }) => <StyledLink to={to} key={id}>{text}</StyledLink>)}
-
-
-
+            {links.map(({ to, id, text, href, local }) => local ? <StyledA href={href}>{text}</StyledA> : <StyledLink to={to} key={id}>{text}</StyledLink>)}
         </StyledNav>
 
     );
