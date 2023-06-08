@@ -6,6 +6,9 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import Home from './pages/Home'
 import Cookwise from './pages/Cookwise';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
 
 
 
@@ -112,11 +115,12 @@ function App() {
               <Cookwise />
             </Route>
             <Route path="/about">
-              <p>About</p>
-
+              <p>About me</p>
+              <About />
             </Route>
             <Route path="/contact">
-              <p>Contact</p>
+              <p>Let's get in touch</p>
+              <Contact />
             </Route>
             <Route path="/">
               <Home />

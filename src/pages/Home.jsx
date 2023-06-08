@@ -1,7 +1,10 @@
 import React, { useState, } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
-
+import portfolioPic from '../assets/Portfolio.png';
+import Iphonex2 from '../assets/Iphonex2.png';
+import korai from '../assets/korai.png';
+import Ipad from '../assets/Ipad.png';
 
 
 
@@ -117,10 +120,10 @@ function Home() {
             <Header>
                 <Textbox>
                     <span>Hello</span>
-                    <span>UX/UI designer</span>
-                    <span>React developer</span>
+                    <span>I'm UX/UI designer</span>
+                    <span>React developer.</span>
                 </Textbox>
-                <img src="/src/assets/Portfolio.png" alt="Portfolio " width="340" />
+                <img src={portfolioPic} alt="Portfolio " width="340" />
             </Header>
 
             <OuterWrapper>
@@ -150,18 +153,24 @@ function Home() {
 
                     </TextContent>
                 </InnerWrapper>
+
                 <InnerWrapper>
                     <GreyBox1>
                         <Link to="/cookwise" onClick={handleImageClick}>
-                            <StyledImage src="/src/assets/Iphonex2.png" alt="Your Image" />
+                            <StyledImage img src={Iphonex2} alt="Your Image" />
+
                         </Link>
                     </GreyBox1>
 
                     <GreyBox1>
-                        <StyledImage src="/src/assets/Korai.png" alt="Your Image" />
+                        <a href="https://6fb81698-7915-4226-abaa-4903c7d2e1fa.filesusr.com/ugd/0f2a81_cdc3b10a909b49e38dbfacdbf9ffe3de.pdf" target="_blank" rel="noopener noreferrer">
+                            <StyledImage img src={korai} alt="korai " />
+                        </a>
                     </GreyBox1>
                     <GreyBox1>
-                        <StyledImage src="/src/assets/Ipad.png" alt="Your Image" />
+                        <a href="https://6fb81698-7915-4226-abaa-4903c7d2e1fa.filesusr.com/ugd/0f2a81_86281013bb67463882c5f51dd7c03732.pdf" target="_blank" rel="noopener noreferrer">
+                            <StyledImage img src={Ipad} alt="Ipad" />
+                        </a>
                     </GreyBox1>
                 </InnerWrapper>
             </OuterWrapper>
