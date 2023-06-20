@@ -90,9 +90,9 @@ const IconLink = styled.a`
  
 `
 const socialData = [
-  { id: 1, href: "https://www.linkedin.com/in/myname/", icon: faLinkedin },
+  { id: 1, href: "https://www.linkedin.com/in/nadin-salimholm-26a503136//", icon: faLinkedin },
   { id: 2, href: "https://www.facebook.com/myname/", icon: faFacebook },
-  { id: 3, href: "https://github.com/myname/", icon: faGithub },
+  { id: 3, href: "https://github.com/Chasacademy-Nadin-Salimholm", icon: faGithub },
 ]
 
 

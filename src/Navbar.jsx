@@ -66,14 +66,22 @@ const links = [
 
 
 const Navbar = () => {
-
     return (
         <StyledNav>
-            {links.map(({ to, id, text, href, local }) => local ? <StyledA href={href}>{text}</StyledA> : <StyledLink to={to} key={id}>{text}</StyledLink>)}
+            {links.map(({ to, id, text, href, local }) =>
+                local ? (
+                    <StyledA href={href} key={id}>
+                        {text}
+                    </StyledA>
+                ) : (
+                    <StyledLink to={to} key={id}>
+                        {text}
+                    </StyledLink>
+                )
+            )}
         </StyledNav>
-
     );
-}
+};
 
 export default Navbar;
 
